@@ -28,11 +28,6 @@ add_library(rtos SHARED
     RTOS/ARINC653/Src/process.c
     RTOS/ARINC653/Src/scheduler.c
 
-    # Comm Drivers
-    Comm/ARINC429/Src/arinc429.c
-    Comm/ARINC664/Src/arinc664.c
-    Comm/MILSTD1553B/Src/milstd1553b.c
-
     # Generated RTOS Startup Logic (contains start_rtos())
     Runner/start_rtos.c
 )
@@ -42,9 +37,6 @@ add_library(rtos SHARED
 # -----------------------------
 target_include_directories(rtos PUBLIC
     RTOS/ARINC653/Inc
-    Comm/ARINC429/Inc
-    Comm/ARINC664/Inc
-    Comm/MILSTD1553B/Inc
     Runner
 )
 

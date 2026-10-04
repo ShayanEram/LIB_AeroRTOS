@@ -4,9 +4,6 @@
       "name": "Linux",
       "includePath": [
         "${workspaceFolder}/RTOS/ARINC653/Inc",
-        "${workspaceFolder}/Comm/ARINC429/Inc",
-        "${workspaceFolder}/Comm/ARINC664/Inc",
-        "${workspaceFolder}/Comm/MILSTD1553B/Inc",
         "${workspaceFolder}/**"
       ],
       "defines": [],

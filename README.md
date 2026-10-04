@@ -1,7 +1,7 @@
 # AeroRTOS (ARINC LIB)
 
 AeroRTOS is a lightweight ARINC 653 RTOS framework.  
-It demonstrates partitioned scheduling, process orchestration, and integration with avionics communication stacks (ARINC 429, ARINC 664, MIL‑STD‑1553B).
+It demonstrates partitioned scheduling, process orchestration.
 
 ---
 
@@ -13,16 +13,9 @@ Aerospace-OS/
 ├── config.yaml          # System definition (partitions, processes)
 ├── config.py            # Generator script
 ├── Runner/
-│   ├── main.c           # Auto-generated runner
+│   ├── start_rtos.c           # Auto-generated runner
 │   └── partitions.cmake # Auto-generated CMake fragment
-├── Partitions/
-│   ├── Partition1/Process1/{Src,Inc}/task1.{c,h}
-│   ├── Partition2/Process1/{Src,Inc}/task2.{c,h}
-│   └── Partition3/Process1/{Src,Inc}/task3.{c,h}
 ├── RTOS/ARINC653/{Src,Inc}
-├── Comm/ARINC429/{Src,Inc}
-├── Comm/ARINC664/{Src,Inc}
-└── Comm/MILSTD1553B/{Src,Inc}
 ```
 
 ---
@@ -86,12 +79,7 @@ Aerospace-OS/
 ## 🛠️ Key Components
 
 - **RTOS/ARINC653**: Core scheduling, partition/process management
-- **Comm/**: Communication protocol libraries
-  - ARINC 429
-  - ARINC 664
-  - MIL‑STD‑1553B
 - **Runner/**: Auto‑generated entry point (`main.c`) and build fragment
-- **Partitions/**: User‑defined processes organized by partition
 
 ---
 
