@@ -9,12 +9,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # -----------------------------
 # 1. Run Python Config Generator
 # -----------------------------
-# Generates Runner/start_rtos.c from config.yaml
 execute_process(
-    COMMAND python ${CMAKE_SOURCE_DIR}/config.py
-            ${CMAKE_SOURCE_DIR}/config.yaml
-            ${CMAKE_SOURCE_DIR}
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/config.py
+            ${CMAKE_CURRENT_SOURCE_DIR}/config.yaml
+            ${CMAKE_CURRENT_SOURCE_DIR}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # -----------------------------

@@ -78,24 +78,53 @@ def write_start_rtos(base_dir, system, partitions):
         f.write("    run_scheduler(&sys);\n")
         f.write("}\n") # Removed return 0
 
+def resolve_config_path(default_arg, base_dir):
+    """
+    Checks for YAML configuration in the following order:
+    1. Parent directory (e.g., UAV project root when RTOS is a submodule)
+    2. Explicit path passed as command line argument (if it exists)
+    3. RTOS repository local directory (fallback default)
+    """
+    config_filename = os.path.basename(default_arg) if default_arg else "config.yaml"
+    parent_dir = os.path.abspath(os.path.join(base_dir, ".."))
+
+    # Candidate locations in priority order
+    candidate_paths = [
+        os.path.join(parent_dir, config_filename),        # ../config.yaml
+        os.path.join(parent_dir, "rtos_config.yaml"),    # ../rtos_config.yaml
+        os.path.abspath(default_arg) if default_arg else "", 
+        os.path.join(base_dir, "config.yaml")             # ./config.yaml
+    ]
+
+    for path in candidate_paths:
+        if path and os.path.isfile(path):
+            print(f"[config.py] Found config file at: {path}")
+            return path
+
+    raise FileNotFoundError(
+        f"Config file not found. Checked parent '{parent_dir}' and base '{base_dir}'."
+    )
+
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) < 3:
         print("Usage: python config.py <config.yaml> <base_dir>")
         sys.exit(1)
 
-    config_file, base_dir = sys.argv[1], sys.argv[2]
-    with open(config_file) as f:
+    raw_config_arg, base_dir = sys.argv[1], sys.argv[2]
+    
+    # Resolve the configuration file path dynamically
+    config_file = resolve_config_path(raw_config_arg, base_dir)
+
+    with open(config_file, "r") as f:
         config = yaml.safe_load(f)
 
     system = config["system"]
     partitions = system["partitions"]
 
-    # Removed the make_stub generation loop so it doesn't overwrite your UAV code
-
     # Generate partitions.cmake
     write_partitions_cmake(base_dir, partitions)
 
-    # Generate start_rtos.c instead of main.c
+    # Generate start_rtos.c
     write_start_rtos(base_dir, system, partitions)
 
 if __name__ == "__main__":
