@@ -1,8 +1,11 @@
-#ifndef LIB_ARINC664_INC_ARINC664_H
-#define LIB_ARINC664_INC_ARINC664_H
+#pragma once
 
 #include <stdint.h>
 #include <stdbool.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define AFDX_MAX_PAYLOAD 1471
 #define AFDX_SEQ_MOD     16
@@ -20,4 +23,6 @@ uint16_t afdx_serialize(const AFDX_Frame* f, uint8_t* out_buf);
 AFDX_Frame afdx_deserialize(const uint8_t* buf, uint16_t len);
 bool afdx_validate_seq(uint8_t expected, uint8_t incoming);
 
-#endif /* LIB_ARINC664_INC_ARINC664_H */
+#ifdef __cplusplus
+}
+#endif

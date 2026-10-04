@@ -1,9 +1,12 @@
-#ifndef LIB_ARINC653_INC_IPC_SAMPLING_H
-#define LIB_ARINC653_INC_IPC_SAMPLING_H
+#pragma once
 
 #include "types.h"
 
 #include <pthread.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Only the latest message is visible — if you overwrite it, the old one is gone.
@@ -36,4 +39,6 @@ RETURN_CODE_TYPE write_sampling_message(sampling_port_t *sp, const void *msg, si
  */
 RETURN_CODE_TYPE read_sampling_message(sampling_port_t *sp, void *msg, size_t *len, SYSTEM_TIME_NS *age_ns);
 
-#endif /* LIB_ARINC653_INC_IPC_SAMPLING_H */
+#ifdef __cplusplus
+}
+#endif

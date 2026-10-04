@@ -1,9 +1,11 @@
-#ifndef LIB_ARINC653_INC_IPC_QUEUEING_H
-#define LIB_ARINC653_INC_IPC_QUEUEING_H
-
+#pragma once
 #include "types.h"
 
 #include <pthread.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Queue structure
@@ -41,5 +43,6 @@ RETURN_CODE_TYPE send_queuing_message(queuing_port_t *qp, const void *msg, size_
  */
 RETURN_CODE_TYPE receive_queuing_message(queuing_port_t *qp, void *msg, size_t *len, SYSTEM_TIME_NS timeout_ns);
 
-
-#endif /* LIB_ARINC653_INC_IPC_QUEUEING_H */
+#ifdef __cplusplus
+}
+#endif

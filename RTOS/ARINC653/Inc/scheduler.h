@@ -1,8 +1,11 @@
-#ifndef LIB_ARINC653_INC_SCHEDULER_H
-#define LIB_ARINC653_INC_SCHEDULER_H
+#pragma once
 
 #include "model.h"
 #include "partition.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Implement the major frame scheduler. 
@@ -16,4 +19,6 @@
  */
 void run_scheduler(system_t *sys);
 
-#endif /* LIB_ARINC653_INC_SCHEDULER_H */
+#ifdef __cplusplus
+}
+#endif

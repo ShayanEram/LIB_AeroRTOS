@@ -1,7 +1,10 @@
-#ifndef LIB_ARINC653_INC_MODEL_H
-#define LIB_ARINC653_INC_MODEL_H
+#pragma once
 
 #include "types.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * process_t: Represents a process (or thread) inside a partition.
@@ -55,4 +58,6 @@ typedef struct{
     partition_t *parts;
 } system_t;
 
-#endif /* LIB_ARINC653_INC_MODEL_H */
+#ifdef __cplusplus
+}
+#endif

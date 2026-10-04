@@ -1,8 +1,11 @@
-#ifndef LIB_ARINC653_INC_ERROR_H
-#define LIB_ARINC653_INC_ERROR_H
+#pragma once
 
 #include "types.h"
 #include "model.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef void (*error_callback_t)(partition_t*, const char* msg, RETURN_CODE_TYPE code);
 
@@ -17,5 +20,6 @@ void set_partition_error_handler(partition_t *p, error_callback_t cb);
  */
 void report_error(partition_t *p, const char *msg, RETURN_CODE_TYPE code);
 
-
-#endif /* LIB_ARINC653_INC_ERROR_H */
+#ifdef __cplusplus
+}
+#endif

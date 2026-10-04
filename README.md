@@ -70,9 +70,7 @@ Aerospace-OS/
    python config.py config.yaml .
    ```
    This creates:
-   - Stub `.c`/`.h` files for each process
-   - `Runner/main.c` with system setup
-   - `Runner/partitions.cmake` listing sources and include paths
+   - `Runner/start_rtos.c` with system setup
 
 3. **Build with CMake**  
    Configure and build:

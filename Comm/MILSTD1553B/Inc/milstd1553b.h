@@ -1,8 +1,11 @@
-#ifndef LIB_MILSTD1553B_INC_MILSTD1553B_H
-#define LIB_MILSTD1553B_INC_MILSTD1553B_H
+#pragma once
 
 #include <stdint.h>
 #include <stdbool.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef enum { WORD_COMMAND, WORD_STATUS, WORD_DATA } MIL1553_WordType;
 
@@ -37,4 +40,6 @@ MIL1553_Data mil1553_decode_data(uint16_t w);
 uint16_t mil1553_serialize(uint16_t word);
 uint16_t mil1553_deserialize(uint16_t net_word);
 
-#endif /* LIB_MILSTD1553B_INC_MILSTD1553B_H */
+#ifdef __cplusplus
+}
+#endif

@@ -1,5 +1,4 @@
-#ifndef LIB_ARINC653_INC_PROCESS_H
-#define LIB_ARINC653_INC_PROCESS_H
+#pragma once
 
 #include "model.h"
 #include "types.h"
@@ -7,6 +6,10 @@
 #include "partition.h"
 
 #include <stdatomic.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * A small context object passed to each thread.
@@ -27,4 +30,6 @@ RETURN_CODE_TYPE start_process(process_t *pr, partition_t *pt);
  */
 RETURN_CODE_TYPE stop_process(process_t *pr);
 
-#endif /* LIB_ARINC653_INC_PROCESS_H */
+#ifdef __cplusplus
+}
+#endif

@@ -1,8 +1,11 @@
-#ifndef LIB_ARINC653_INC_TYPES_H
-#define LIB_ARINC653_INC_TYPES_H
+#pragma once
 
 #include <stdint.h>
 #include <pthread.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 // Global arinc653 Typedef
 typedef uint32_t    RETURN_CODE_TYPE;
@@ -70,4 +73,6 @@ typedef enum{
     ACTIVE_TRUE
 } ACTIVE_TYPE;
 
-#endif /* LIB_ARINC653_INC_TYPES_H */
+#ifdef __cplusplus
+}
+#endif

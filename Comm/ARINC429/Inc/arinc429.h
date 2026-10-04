@@ -1,9 +1,12 @@
-#ifndef LIB_ARINC429_INC_ARINC429_H
-#define LIB_ARINC429_INC_ARINC429_H
+#pragma once
 
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 // ARINC 429 word representation
 typedef struct {
@@ -23,4 +26,6 @@ uint32_t arinc429_encode_bcd(int value);
 bool arinc429_get_discrete(uint32_t data, int bit);
 uint32_t arinc429_set_discrete(uint32_t data, int bit, bool val);
 
-#endif /* LIB_ARINC429_INC_ARINC429_H */
+#ifdef __cplusplus
+}
+#endif

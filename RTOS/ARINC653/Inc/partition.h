@@ -1,7 +1,10 @@
-#ifndef LIB_ARINC653_INC_PARTITION_H
-#define LIB_ARINC653_INC_PARTITION_H
+#pragma once
 
 #include "model.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Initialization of a partition
@@ -18,4 +21,6 @@ void partition_set_active(partition_t *p, ACTIVE_TYPE active);
  */
 void partition_wait_active(partition_t *p);
 
-#endif /* LIB_ARINC653_INC_PARTITION_H */
+#ifdef __cplusplus
+}
+#endif

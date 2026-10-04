@@ -3,17 +3,13 @@
 #include "process.h"
 #include "scheduler.h"
 
-#include "task1.h"
-#include "task2.h"
-#include "task3.h"
-
 extern void task1(void);
 extern void task2(void);
 extern void task3(void);
 
 #define NUMBER_OF_PARTITIONS 3
 
-int main() 
+void start_rtos(void) 
 {
     system_t sys = {
         .major_frame_ns = 100000000ULL,
@@ -71,5 +67,4 @@ int main()
     }
 
     run_scheduler(&sys);
-    return 0;
 }
